@@ -1,29 +1,32 @@
 # rrt_planner
-This repository contains two packages.
-
-```
-roslaunch planner rrt_planner.launch
-```
+This repository contains two packages. 
 
 ## Installation
 
-Clone this repository in a catkin workspace and run the following command to build the packages:
+Fristly, clone this repository in a catkin workspace and run the following command to build the packages:
 
 ```
 catkin build
-```
 
+```
+## Loading the map
+
+There are a total of 4 maps avaialible in the maps library. To select the map, set the map_file arg to the corresponding file name. If no map is selected, an empty canvas will be launched.
+
+```
+roslaunch planner rrt_planner.launch map_title:=<directory of the package>/rrt_planner/mapping/maps/map1.png
+```
 
 ## Mapping
 
-The mapping package provides a minimalistic GUI to draw obstacles in a 2D environment and choose starting position and goal.
+The mapping package provides a minimalistic GUI to draw obstacles in a 2D environment and choose starting position and goal. Similarly, user can choose to load any of the maps otherwise an empty canvas will be provided instead.
 
 ![Map](images/map.png)
 
 
 To run the mapping node:
 ```
-roslaunch mapping mapping_node.launch
+roslaunch mapping mapping_node.launch map_title:=<directory of the package>/rrt_planner/mapping/maps/map1.png
 ```
 
 The following parameters can be set in the launch file:
